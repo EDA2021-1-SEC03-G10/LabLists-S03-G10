@@ -24,6 +24,8 @@ import config as cf
 import sys
 import controller
 from DISClib.ADT import list as lt
+
+
 assert cf
 
 
@@ -97,20 +99,25 @@ while True:
         print('Asociación de Géneros a Libros cargados: ' +
               str(lt.size(catalog['book_tags'])))
 
+
     elif int(inputs[0]) == 2:
         number = input("Buscando los TOP ?: ")
         books = controller.getBestBooks(catalog, int(number))
         printBestBooks(books)
+
+        
 
     elif int(inputs[0]) == 3:
         authorname = input("Nombre del autor a buscar: ")
         author = controller.getBooksByAuthor(catalog, authorname)
         printAuthorData(author)
 
+
     elif int(inputs[0]) == 4:
         label = input("Etiqueta a buscar: ")
         book_count = controller.countBooksByTag(catalog, label)
         print('Se encontraron: ', book_count, ' Libros')
+
 
     else:
         sys.exit(0)
